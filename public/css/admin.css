@@ -69,3 +69,15 @@
 .orders-table tbody tr:hover { background: var(--cream); }
 .orders-table ul { margin: 0; padding-left: 18px; }
 .order-total-cell { font-weight: 700; white-space: nowrap; }
+.delete-order-btn {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.delete-order-btn:hover { background: var(--danger); color: #fff; }
+.delete-order-btn:disabled { opacity: 0.5; cursor: not-allowed; }
