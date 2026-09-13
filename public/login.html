@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop — Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyShop <span class="admin-tag">Admin</span></h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Back to store</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="login-main">
+    <form id="loginForm" class="login-card">
+      <h2>Admin login</h2>
+      <p class="login-subtitle">Sign in to view orders and revenue.</p>
+
+      <label>
+        Username
+        <input type="text" id="username" name="username" autocomplete="username" required>
+      </label>
+      <label>
+        Password
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </label>
+
+      <p id="loginError" class="checkout-error" hidden></p>
+
+      <button type="submit" class="checkout-btn" id="loginSubmit">Log in</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MyShop. All rights reserved.</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
