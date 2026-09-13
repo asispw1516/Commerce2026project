@@ -69,6 +69,10 @@ async function loadOrders() {
 
   try {
     const res = await fetch('/api/orders');
+    if (res.status === 401) {
+      window.location.href = 'login.html';
+      return;
+    }
     if (!res.ok) throw new Error('Request failed: ' + res.status);
     const orders = await res.json();
     renderOrders(orders);
@@ -159,15 +163,13 @@ tbody.addEventListener('click', async (e) => {
 refreshBtn.addEventListener('click', loadOrders);
 
 logoutBtn.addEventListener('click', async () => {
+  logoutBtn.disabled = true;
   try {
-    await fetch('/api/orders', {
-      headers: { Authorization: 'Basic ' + btoa('logout:logout') },
-      cache: 'no-store',
-    });
+    await fetch('/api/admin/logout', { method: 'POST' });
   } catch (err) {
-    // Ignore — the request is expected to fail with 401, that's the point.
+    // Even if this fails, still send them to the login page.
   }
-  window.location.href = 'index.html';
+  window.location.href = 'login.html';
 });
 
 loadOrders();
