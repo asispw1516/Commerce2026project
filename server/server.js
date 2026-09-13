@@ -67,6 +67,19 @@ app.get('/api/orders', (req, res) => {
   res.json(readOrders());
 });
 
+// Admin: delete a single order by its orderId
+app.delete('/api/orders/:orderId', (req, res) => {
+  const orders = readOrders();
+  const remaining = orders.filter(o => o.orderId !== req.params.orderId);
+
+  if (remaining.length === orders.length) {
+    return res.status(404).json({ error: 'Order not found.' });
+  }
+
+  writeOrders(remaining);
+  res.json({ deleted: req.params.orderId });
+});
+
 app.listen(PORT, () => {
   console.log(`MyShop server running at http://localhost:${PORT}`);
   console.log(`Admin dashboard at http://localhost:${PORT}/admin.html`);
