@@ -1,4 +1,4 @@
-# MyShop
+# SwiftBasket
 
 A small e-commerce demo site: browse products, add/remove items from a live-updating
 cart, "pay" through a simulated checkout, and view all placed orders from an admin page.
@@ -30,4 +30,4 @@ Authorization
 DataBase
 Merchant Login??
 
-Members- Aashish Raut,Aashish Upadhayay,Himal Saud
+Members- Aashish Raut,Aashish Upadhyay,Himal Saud
