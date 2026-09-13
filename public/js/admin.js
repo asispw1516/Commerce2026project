@@ -3,6 +3,7 @@ const loadingMsg = document.getElementById('loadingMsg');
 const table = document.getElementById('ordersTable');
 const tbody = document.getElementById('ordersBody');
 const refreshBtn = document.getElementById('refreshBtn');
+const logoutBtn = document.getElementById('logoutBtn');
 const dailyBody = document.getElementById('dailyBody');
 const monthlyBody = document.getElementById('monthlyBody');
 
@@ -156,4 +157,17 @@ tbody.addEventListener('click', async (e) => {
 });
 
 refreshBtn.addEventListener('click', loadOrders);
+
+logoutBtn.addEventListener('click', async () => {
+  try {
+    await fetch('/api/orders', {
+      headers: { Authorization: 'Basic ' + btoa('logout:logout') },
+      cache: 'no-store',
+    });
+  } catch (err) {
+    // Ignore — the request is expected to fail with 401, that's the point.
+  }
+  window.location.href = 'index.html';
+});
+
 loadOrders();
