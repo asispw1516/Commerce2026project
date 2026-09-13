@@ -10,7 +10,6 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 app.use(express.json());
 app.use(express.static(PUBLIC_DIR));
 
-// ---------- Helpers ----------
 function readOrders() {
   try {
     const raw = fs.readFileSync(DATA_FILE, 'utf-8');
@@ -30,9 +29,6 @@ function makeOrderId() {
   return `ORD-${Date.now().toString().slice(-6)}-${rand}`;
 }
 
-// ---------- Routes ----------
-
-// Record a new (simulated) purchase
 app.post('/api/checkout', (req, res) => {
   const { customer, items, total } = req.body || {};
 
@@ -62,12 +58,10 @@ app.post('/api/checkout', (req, res) => {
   res.status(201).json({ orderId: order.orderId });
 });
 
-// Admin: list all orders
 app.get('/api/orders', (req, res) => {
   res.json(readOrders());
 });
 
-// Admin: delete a single order by its orderId
 app.delete('/api/orders/:orderId', (req, res) => {
   const orders = readOrders();
   const remaining = orders.filter(o => o.orderId !== req.params.orderId);
