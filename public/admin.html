@@ -27,7 +27,29 @@
 
     <div id="stats" class="admin-stats"></div>
 
+    <div class="breakdown-grid">
+      <div class="breakdown-card">
+        <h3>By Day</h3>
+        <table class="breakdown-table">
+          <thead>
+            <tr><th>Date</th><th>Orders</th><th>Items</th><th>Revenue</th></tr>
+          </thead>
+          <tbody id="dailyBody"></tbody>
+        </table>
+      </div>
+      <div class="breakdown-card">
+        <h3>By Month</h3>
+        <table class="breakdown-table">
+          <thead>
+            <tr><th>Month</th><th>Orders</th><th>Items</th><th>Revenue</th></tr>
+          </thead>
+          <tbody id="monthlyBody"></tbody>
+        </table>
+      </div>
+    </div>
+
     <div id="ordersWrap">
+      <h3 class="section-label">All Orders</h3>
       <p id="loadingMsg" class="cart-empty">Loading orders…</p>
       <table id="ordersTable" class="orders-table" hidden>
         <thead>
