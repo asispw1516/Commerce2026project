@@ -1,0 +1,12 @@
+{
+  "name": "myshop-server",
+  "version": "1.0.0",
+  "description": "Backend for MyShop - serves the storefront, records simulated orders, and powers the admin dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

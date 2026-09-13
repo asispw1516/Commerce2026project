@@ -1,0 +1,71 @@
+.admin-tag {
+  background: var(--mustard);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.admin-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.admin-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.refresh-btn {
+  width: auto;
+  padding: 9px 18px;
+}
+.admin-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  min-width: 160px;
+}
+.stat-card .stat-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+.stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 0 var(--line);
+}
+.orders-table th, .orders-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+.orders-table th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+}
+.orders-table tbody tr:hover { background: var(--cream); }
+.orders-table ul { margin: 0; padding-left: 18px; }
+.order-total-cell { font-weight: 700; white-space: nowrap; }

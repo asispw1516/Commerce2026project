@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop — E-commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyShop</h1>
+      <ul class="nav-links">
+        <li><a href="#electronics">Electronics</a></li>
+        <li><a href="#clothes">Clothes</a></li>
+        <li><a href="#food">Food Items</a></li>
+        <li><a href="#books">Books</a></li>
+      </ul>
+      <input type="text" id="searchBar" placeholder="Search products..." class="search-bar">
+      <button id="cartToggle" class="cart-toggle" aria-label="Open cart">
+        Cart <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Welcome to MyShop</h2>
+    <p>Your one-stop store for everything!</p>
+    <a href="#electronics"><button>Shop Now</button></a>
+  </section>
+
+  <main>
+    <!-- Electronics Category -->
+    <section class="category" id="electronics">
+      <h2>Electronics</h2>
+      <div class="product-grid">
+        <div class="product-card" data-name="Electronics">
+          <img src="photos/earpods1.jpg" alt="Wireless Earbuds">
+          <h3>Wireless Earbuds</h3>
+          <p>Brand: SoundPro</p>
+          <p class="price">RS.10000</p>
+          <button class="add-to-cart" data-id="earbuds-soundpro" data-name="Wireless Earbuds" data-price="10000" data-img="photos/earpods1.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/earpods2.jpg" alt="Bluetooth Earbuds">
+          <h3>Bluetooth Earbuds</h3>
+          <p>Brand: AirTune</p>
+          <p class="price">RS.16000</p>
+          <button class="add-to-cart" data-id="earbuds-airtune" data-name="Bluetooth Earbuds" data-price="16000" data-img="photos/earpods2.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/headphones3.jpg" alt="Gaming Headphones">
+          <h3>Gaming Headphones</h3>
+          <p>Brand: SonicX</p>
+          <p class="price">RS.22500</p>
+          <button class="add-to-cart" data-id="headphones-sonicx" data-name="Gaming Headphones" data-price="22500" data-img="photos/headphones3.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/headphones5.jpg" alt="Studio Headphones">
+          <h3>Studio Headphones</h3>
+          <p>Brand: AudioMax</p>
+          <p class="price">RS.30000</p>
+          <button class="add-to-cart" data-id="headphones-audiomax" data-name="Studio Headphones" data-price="30000" data-img="photos/headphones5.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/laptop2.jpg" alt="Laptop Pro">
+          <h3>Laptop Pro</h3>
+          <p>Brand: TechNova</p>
+          <p class="price">RS.100000</p>
+          <button class="add-to-cart" data-id="laptop-technova" data-name="Laptop Pro" data-price="100000" data-img="photos/laptop2.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/laptop4.jpg" alt="MacBook Air">
+          <h3>MacBook Air</h3>
+          <p>Brand: Apple</p>
+          <p class="price">RS.140000</p>
+          <button class="add-to-cart" data-id="macbook-air" data-name="MacBook Air" data-price="140000" data-img="photos/laptop4.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/phone1.jpg" alt="Smartphone X">
+          <h3>Smartphone X</h3>
+          <p>Brand: PixelOne</p>
+          <p class="price">RS.80000</p>
+          <button class="add-to-cart" data-id="phone-pixelone" data-name="Smartphone X" data-price="80000" data-img="photos/phone1.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/phone3.png" alt="Smartphone Classic">
+          <h3>Smartphone Classic</h3>
+          <p>Brand: RetroTech</p>
+          <p class="price">RS.21000</p>
+          <button class="add-to-cart" data-id="phone-retrotech" data-name="Smartphone Classic" data-price="21000" data-img="photos/phone3.png">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clothing Category -->
+    <section class="category" id="clothes">
+      <h2>Clothes</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="photos/clothes1.jpg" alt="Casual T-Shirt">
+          <h3>Casual T-Shirt</h3>
+          <p>Brand: StyleWear</p>
+          <p class="price">RS.2500</p>
+          <button class="add-to-cart" data-id="tshirt-stylewear" data-name="Casual T-Shirt" data-price="2500" data-img="photos/clothes1.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothes2.jpg" alt="Denim Jeans">
+          <h3>Denim Jeans</h3>
+          <p>Brand: UrbanFit</p>
+          <p class="price">RS.4000</p>
+          <button class="add-to-cart" data-id="jeans-urbanfit" data-name="Denim Jeans" data-price="4000" data-img="photos/clothes2.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothes3.jpg" alt="Formal Shirt">
+          <h3>Formal Shirt</h3>
+          <p>Brand: ClassicLine</p>
+          <p class="price">RS.3200</p>
+          <button class="add-to-cart" data-id="shirt-classicline" data-name="Formal Shirt" data-price="3200" data-img="photos/clothes3.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothing4.jpg" alt="Summer Dress">
+          <h3>Summer Dress</h3>
+          <p>Brand: TrendyWear</p>
+          <p class="price">RS.1900</p>
+          <button class="add-to-cart" data-id="dress-trendywear" data-name="Summer Dress" data-price="1900" data-img="photos/clothing4.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothing5.jpg" alt="Hoodie">
+          <h3>Hoodie</h3>
+          <p>Brand: CozyStyle</p>
+          <p class="price">RS.2300</p>
+          <button class="add-to-cart" data-id="hoodie-cozystyle" data-name="Hoodie" data-price="2300" data-img="photos/clothing5.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothing6.jpg" alt="Leather Jacket">
+          <h3>Leather Jacket</h3>
+          <p>Brand: BoldWear</p>
+          <p class="price">RS.4000</p>
+          <button class="add-to-cart" data-id="jacket-boldwear" data-name="Leather Jacket" data-price="4000" data-img="photos/clothing6.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothing7.jpg" alt="Track Pants">
+          <h3>Track Pants</h3>
+          <p>Brand: SportFlex</p>
+          <p class="price">RS.2400</p>
+          <button class="add-to-cart" data-id="pants-sportflex" data-name="Track Pants" data-price="2400" data-img="photos/clothing7.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/clothing8.jpg" alt="Casual Sneakers">
+          <h3>Casual Sneakers</h3>
+          <p>Brand: WalkEasy</p>
+          <p class="price">RS.6000</p>
+          <button class="add-to-cart" data-id="sneakers-walkeasy" data-name="Casual Sneakers" data-price="6000" data-img="photos/clothing8.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food Items / Kitchen Category -->
+    <section class="category" id="food">
+      <h2>Food Items / Kitchen Tools</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="photos/kitchenitems1.jpg" alt="Potato Masher">
+          <h3>Potato Masher</h3>
+          <p>Brand: ChefEase</p>
+          <p class="price">RS.1400</p>
+          <button class="add-to-cart" data-id="masher-chefease" data-name="Potato Masher" data-price="1400" data-img="photos/kitchenitems1.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems2.jpg" alt="Silicone Whisk">
+          <h3>Silicone Whisk</h3>
+          <p>Brand: MixMaster</p>
+          <p class="price">RS.1000</p>
+          <button class="add-to-cart" data-id="whisk-mixmaster" data-name="Silicone Whisk" data-price="1000" data-img="photos/kitchenitems2.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems3.jpg" alt="Mini Bag Sealer">
+          <h3>Mini Bag Sealer</h3>
+          <p>Brand: SealPro</p>
+          <p class="price">RS.2450</p>
+          <button class="add-to-cart" data-id="sealer-sealpro" data-name="Mini Bag Sealer" data-price="2450" data-img="photos/kitchenitems3.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems4.jpg" alt="Dough Roller Machine">
+          <h3>Dough Roller Machine</h3>
+          <p>Brand: BakeLine</p>
+          <p class="price">RS.17500</p>
+          <button class="add-to-cart" data-id="roller-bakeline" data-name="Dough Roller Machine" data-price="17500" data-img="photos/kitchenitems4.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems5.jpg" alt="Digital Kitchen Scale">
+          <h3>Digital Kitchen Scale</h3>
+          <p>Brand: WeighSmart</p>
+          <p class="price">RS.3000</p>
+          <button class="add-to-cart" data-id="scale-weighsmart" data-name="Digital Kitchen Scale" data-price="3000" data-img="photos/kitchenitems5.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems6.jpg" alt="Silicone Ice Tray">
+          <h3>Silicone Ice Tray</h3>
+          <p>Brand: ChillFlex</p>
+          <p class="price">RS.1700</p>
+          <button class="add-to-cart" data-id="icetray-chillflex" data-name="Silicone Ice Tray" data-price="1700" data-img="photos/kitchenitems6.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems7.jpg" alt="Chapati Tong">
+          <h3>Chapati Tong</h3>
+          <p>Brand: HeatSafe</p>
+          <p class="price">RS.699</p>
+          <button class="add-to-cart" data-id="tong-heatsafe" data-name="Chapati Tong" data-price="699" data-img="photos/kitchenitems7.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/kitchenitems8.jpg" alt="Lemon Squeezer">
+          <h3>Lemon Squeezer</h3>
+          <p>Brand: FreshPress</p>
+          <p class="price">RS.1200</p>
+          <button class="add-to-cart" data-id="squeezer-freshpress" data-name="Lemon Squeezer" data-price="1200" data-img="photos/kitchenitems8.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books Category -->
+    <section class="category" id="books">
+      <h2>Books</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="photos/book1.jpg" alt="The Silent Code">
+          <h3>The Silent Code</h3>
+          <p class="author">Author: Jessie Clark</p>
+          <p>Brand: PageTurner &middot; Mystery / Thriller</p>
+          <p class="price">RS.1450</p>
+          <button class="add-to-cart" data-id="book-silentcode" data-name="The Silent Code" data-price="1450" data-img="photos/book1.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book2.jpg" alt="Dreams of Tomorrow">
+          <h3>Dreams of Tomorrow</h3>
+          <p class="author">Author: R.B. Alade</p>
+          <p>Brand: NovelNest &middot; Science Fiction</p>
+          <p class="price">RS.1950</p>
+          <button class="add-to-cart" data-id="book-dreamsoftomorrow" data-name="Dreams of Tomorrow" data-price="1950" data-img="photos/book2.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book3.jpg" alt="Echoes of Eternity">
+          <h3>Echoes of Eternity</h3>
+          <p class="author">Author: Hal M. Helms</p>
+          <p>Brand: WordCraft &middot; Fantasy</p>
+          <p class="price">RS.1800</p>
+          <button class="add-to-cart" data-id="book-echoesofeternity" data-name="Echoes of Eternity" data-price="1800" data-img="photos/book3.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book4.jpg" alt="The Hidden Truth">
+          <h3>The Hidden Truth</h3>
+          <p class="author">Author: Hilary Boyd</p>
+          <p>Brand: InkHouse &middot; Non-Fiction / History</p>
+          <p class="price">RS.2000</p>
+          <button class="add-to-cart" data-id="book-hiddentruth" data-name="The Hidden Truth" data-price="2000" data-img="photos/book4.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book5.jpg" alt="Whispers of the Wind">
+          <h3>Whispers of the Wind</h3>
+          <p class="author">Author: Abigail G. Thompson</p>
+          <p>Brand: StorySphere &middot; Romance</p>
+          <p class="price">RS.1100</p>
+          <button class="add-to-cart" data-id="book-whispersofthewind" data-name="Whispers of the Wind" data-price="1100" data-img="photos/book5.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book6.jpg" alt="Mind Over Matter">
+          <h3>Mind Over Matter</h3>
+          <p class="author">Author: Peter Hollins</p>
+          <p>Brand: ThinkPress &middot; Self-Help</p>
+          <p class="price">RS.1500</p>
+          <button class="add-to-cart" data-id="book-mindovermatter" data-name="Mind Over Matter" data-price="1500" data-img="photos/book6.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book7.jpg" alt="The Quantum Path">
+          <h3>The Quantum Path</h3>
+          <p class="author">Author: J. Kuber Singh</p>
+          <p>Brand: FutureReads &middot; Science / Technology</p>
+          <p class="price">RS.1700</p>
+          <button class="add-to-cart" data-id="book-quantumpath" data-name="The Quantum Path" data-price="1700" data-img="photos/book7.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="photos/book8.jpg" alt="Voices of the Past">
+          <h3>Voices of the Past</h3>
+          <p class="author">Author: Normin S. Pakpahan</p>
+          <p>Brand: HeritageBooks &middot; Biography</p>
+          <p class="price">RS.2300</p>
+          <button class="add-to-cart" data-id="book-voicesofthepast" data-name="Voices of the Past" data-price="2300" data-img="photos/book8.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-drawer-head">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="icon-btn" aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">RS.0</span>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn" disabled>Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Checkout / Simulated Payment Modal -->
+  <div id="checkoutOverlay" class="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button id="closeCheckout" class="icon-btn modal-close" aria-label="Close">&times;</button>
+
+      <div id="checkoutForm">
+        <h2 id="checkoutTitle">Checkout</h2>
+        <p class="modal-subtitle">This is a simulated payment. No real card is charged.</p>
+
+        <div id="orderSummary" class="order-summary"></div>
+
+        <form id="payForm">
+          <label>Full name
+            <input type="text" id="custName" required placeholder="Jane Doe">
+          </label>
+          <label>Email
+            <input type="email" id="custEmail" required placeholder="jane@example.com">
+          </label>
+          <label>Card number
+            <input type="text" id="cardNumber" required maxlength="19" placeholder="4242 4242 4242 4242">
+          </label>
+          <div class="form-row">
+            <label>Expiry
+              <input type="text" id="cardExpiry" required maxlength="5" placeholder="MM/YY">
+            </label>
+            <label>CVV
+              <input type="text" id="cardCvv" required maxlength="3" placeholder="123">
+            </label>
+          </div>
+          <button type="submit" class="checkout-btn" id="payBtn">Pay <span id="payAmount"></span></button>
+        </form>
+      </div>
+
+      <div id="checkoutSuccess" class="checkout-success" hidden>
+        <div class="success-icon">&#10003;</div>
+        <h2>Payment successful</h2>
+        <p>Order <strong id="orderId"></strong> has been placed (simulated).</p>
+        <button id="closeSuccess" class="checkout-btn">Continue Shopping</button>
+      </div>
+
+      <div id="checkoutError" class="checkout-error" hidden>
+        <p>Couldn't reach the order server, so the order wasn't logged for the admin — but here's what a real payment confirmation would look like.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 MyShop. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>

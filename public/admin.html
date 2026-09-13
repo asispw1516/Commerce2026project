@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyShop <span class="admin-tag">Admin</span></h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Back to store</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-head">
+      <h2>Orders</h2>
+      <button id="refreshBtn" class="checkout-btn refresh-btn">Refresh</button>
+    </div>
+
+    <div id="stats" class="admin-stats"></div>
+
+    <div id="ordersWrap">
+      <p id="loadingMsg" class="cart-empty">Loading orders…</p>
+      <table id="ordersTable" class="orders-table" hidden>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="ordersBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MyShop. All rights reserved.</p>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
