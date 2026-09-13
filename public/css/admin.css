@@ -81,3 +81,53 @@
 }
 .delete-order-btn:hover { background: var(--danger); color: #fff; }
 .delete-order-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.section-label {
+  font-size: 1rem;
+  margin: 0 0 14px;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.breakdown-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.breakdown-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.breakdown-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.breakdown-table td {
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.breakdown-table tr:last-child td { border-bottom: none; }
+.breakdown-empty {
+  color: var(--muted);
+  padding: 10px 4px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .breakdown-grid { grid-template-columns: 1fr; }
+}
