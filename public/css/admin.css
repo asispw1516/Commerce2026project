@@ -19,9 +19,22 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.admin-head-actions {
+  display: flex;
+  gap: 10px;
+}
 .refresh-btn {
   width: auto;
   padding: 9px 18px;
+}
+.logout-btn {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+.logout-btn:hover {
+  background: var(--danger);
+  color: #fff;
 }
 .admin-stats {
   display: flex;
