@@ -144,3 +144,48 @@
 @media (max-width: 720px) {
   .breakdown-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Login page ---------- */
+.login-main {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 64px 24px 60px;
+}
+.login-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.login-card h2 {
+  margin-bottom: 6px;
+}
+.login-subtitle {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+.login-card label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.login-card input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.login-card input:focus {
+  outline: 2px solid var(--mustard);
+  outline-offset: 1px;
+}
+.login-card .checkout-btn {
+  margin-top: 6px;
+}
