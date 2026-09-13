@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
 
@@ -14,31 +15,39 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'changeme';
 
-function requireAdminAuth(req, res, next) {
-  const header = req.headers.authorization || '';
-  const [scheme, encoded] = header.split(' ');
-
-  if (scheme === 'Basic' && encoded) {
-    const decoded = Buffer.from(encoded, 'base64').toString('utf-8');
-    const sepIndex = decoded.indexOf(':');
-    const user = decoded.slice(0, sepIndex);
-    const pass = decoded.slice(sepIndex + 1);
-
-    if (user === ADMIN_USER && pass === ADMIN_PASS) {
-      return next();
-    }
-  }
-
-  res.set('WWW-Authenticate', 'Basic realm="MyShop Admin"');
-  return res.status(401).send('Authentication required.');
-}
+// Render sits behind a proxy that terminates HTTPS, so Express needs to
+// trust the X-Forwarded-* headers to know the original request was secure.
+app.set('trust proxy', 1);
 
 app.use(express.json());
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'dev-only-secret-change-me',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 1000 * 60 * 60 * 8, // 8 hours
+  },
+}));
+
+// Protects HTML pages: sends anyone not logged in to the login page.
+function requireAdminPage(req, res, next) {
+  if (req.session && req.session.isAdmin) return next();
+  return res.redirect('/login.html');
+}
+
+// Protects JSON API routes: no redirect, just a 401 the frontend can handle.
+function requireAdminApi(req, res, next) {
+  if (req.session && req.session.isAdmin) return next();
+  return res.status(401).json({ error: 'Not logged in.' });
+}
 
 // Protect the admin page itself. This must be registered BEFORE
 // express.static, otherwise static would serve admin.html to anyone
 // before this auth check ever runs.
-app.get('/admin.html', requireAdminAuth, (req, res) => {
+app.get('/admin.html', requireAdminPage, (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'admin.html'));
 });
 
@@ -92,11 +101,28 @@ app.post('/api/checkout', (req, res) => {
   res.status(201).json({ orderId: order.orderId });
 });
 
-app.get('/api/orders', requireAdminAuth, (req, res) => {
+app.post('/api/admin/login', (req, res) => {
+  const { username, password } = req.body || {};
+
+  if (username === ADMIN_USER && password === ADMIN_PASS) {
+    req.session.isAdmin = true;
+    return res.json({ success: true });
+  }
+
+  return res.status(401).json({ error: 'Incorrect username or password.' });
+});
+
+app.post('/api/admin/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.json({ success: true });
+  });
+});
+
+app.get('/api/orders', requireAdminApi, (req, res) => {
   res.json(readOrders());
 });
 
-app.delete('/api/orders/:orderId', requireAdminAuth, (req, res) => {
+app.delete('/api/orders/:orderId', requireAdminApi, (req, res) => {
   const orders = readOrders();
   const remaining = orders.filter(o => o.orderId !== req.params.orderId);
 
