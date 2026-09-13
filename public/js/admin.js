@@ -3,6 +3,8 @@ const loadingMsg = document.getElementById('loadingMsg');
 const table = document.getElementById('ordersTable');
 const tbody = document.getElementById('ordersBody');
 const refreshBtn = document.getElementById('refreshBtn');
+const dailyBody = document.getElementById('dailyBody');
+const monthlyBody = document.getElementById('monthlyBody');
 
 function formatRs(amount) {
   return 'RS.' + Number(amount).toLocaleString('en-IN');
@@ -11,6 +13,52 @@ function formatRs(amount) {
 function formatDate(iso) {
   const d = new Date(iso);
   return d.toLocaleString();
+}
+
+// ---------- Grouping helpers ----------
+function groupOrders(orders, granularity) {
+  const groups = {};
+
+  orders.forEach(o => {
+    const d = new Date(o.createdAt);
+    const key = granularity === 'day'
+      ? d.toLocaleDateString('en-CA') // sortable YYYY-MM-DD
+      : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+    if (!groups[key]) groups[key] = { key, orders: 0, items: 0, revenue: 0, sampleDate: d };
+    groups[key].orders += 1;
+    groups[key].items += o.items.reduce((s, i) => s + i.qty, 0);
+    groups[key].revenue += o.total;
+  });
+
+  return Object.values(groups).sort((a, b) => b.key.localeCompare(a.key));
+}
+
+function formatDayLabel(group) {
+  return group.sampleDate.toLocaleDateString(undefined, {
+    year: 'numeric', month: 'short', day: 'numeric',
+  });
+}
+
+function formatMonthLabel(group) {
+  return group.sampleDate.toLocaleDateString(undefined, {
+    year: 'numeric', month: 'long',
+  });
+}
+
+function renderBreakdown(tbodyEl, groups, labelFn) {
+  if (groups.length === 0) {
+    tbodyEl.innerHTML = `<tr><td colspan="4" class="breakdown-empty">No data yet.</td></tr>`;
+    return;
+  }
+  tbodyEl.innerHTML = groups.map(g => `
+    <tr>
+      <td>${labelFn(g)}</td>
+      <td>${g.orders}</td>
+      <td>${g.items}</td>
+      <td>${formatRs(g.revenue)}</td>
+    </tr>
+  `).join('');
 }
 
 async function loadOrders() {
@@ -50,6 +98,9 @@ function renderOrders(orders) {
       <div class="stat-value">${formatRs(totalRevenue)}</div>
     </div>
   `;
+
+  renderBreakdown(dailyBody, groupOrders(orders, 'day'), formatDayLabel);
+  renderBreakdown(monthlyBody, groupOrders(orders, 'month'), formatMonthLabel);
 
   if (orders.length === 0) {
     loadingMsg.hidden = false;
