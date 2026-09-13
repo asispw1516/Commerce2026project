@@ -75,10 +75,34 @@ function renderOrders(orders) {
           </ul>
         </td>
         <td class="order-total-cell">${formatRs(o.total)}</td>
+        <td><button class="delete-order-btn" data-id="${o.orderId}">Delete</button></td>
       </tr>
     `)
     .join('');
 }
+
+tbody.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.delete-order-btn');
+  if (!btn) return;
+
+  const orderId = btn.dataset.id;
+  if (!confirm(`Delete order ${orderId}? This can't be undone.`)) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Deleting…';
+
+  try {
+    const res = await fetch(`/api/orders/${encodeURIComponent(orderId)}`, {
+      method: 'DELETE',
+    });
+    if (!res.ok) throw new Error('Delete failed');
+    loadOrders();
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Delete';
+    alert("Couldn't delete that order. Try refreshing and trying again.");
+  }
+});
 
 refreshBtn.addEventListener('click', loadOrders);
 loadOrders();
